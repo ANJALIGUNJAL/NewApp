@@ -1,0 +1,10 @@
+export const grey = '#999999';
+export const primary = '#790000';
+export const red = '#F44337';
+export const google = '#de3840';
+export const facebook = '#1b4e8d';
+export const blue = '#1b4f8d';
+export const darkgrey = '#333333';
+export const lightgrey = '#555555';
+export const green = '#0cbe7a';
+export const greyshade = '#d5d5d5';
