@@ -1,5 +1,39 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {connect} from 'react-redux';
+import {ThunkDispatch} from 'redux-thunk';
+import {RootState} from '../store';
+import {sampleDataState} from '../store/reducers/sample/sampleReducer';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+
+interface DispatchProps {
+  // setOnboarding: (routeName: string) => void;
+}
+
+interface cartItemProps {
+  navigation: StackNavigationProp<any>;
+}
+
+interface cartItemState {
+  data: sampleDataState;
+}
+
+type Props = cartItemProps & cartItemState;
+
+const mapStateToProps = (states: RootState) => {
+  return {
+    data: states.sample,
+  };
+};
+
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<{}, {}, any>,
+): DispatchProps => {
+  return {
+    // setOnboarding: routeName => dispatch(setOnboarding(routeName)),
+  };
+};
 
 class SampleScreen extends Component<any> {
   constructor(props: any) {
@@ -7,12 +41,21 @@ class SampleScreen extends Component<any> {
   }
 
   render() {
+    console.log('SAMPLEDATA', this.props.data.sampleData.data);
     return (
-      <View style={{flex: 1}}>
-        <Text>Welcome to Delivery App </Text>
+      <View style={SampleStyles.mainContainer}>
+        <TouchableOpacity>
+          <Text style={{fontWeight: 'bold'}}>Welcome to Delivery App </Text>
+        </TouchableOpacity>
       </View>
     );
   }
 }
-const CartEmptyStyles = StyleSheet.create({});
-export default SampleScreen;
+const SampleStyles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(SampleScreen);
