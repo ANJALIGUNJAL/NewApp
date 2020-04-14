@@ -14,9 +14,7 @@ import {
   OpenSansSemiBold,
 } from '../themes/config';
 
-interface DispatchProps {
-  // setOnboarding: (routeName: string) => void;
-}
+interface DispatchProps {}
 
 interface cartItemProps {
   navigation: StackNavigationProp<any>;
@@ -37,9 +35,7 @@ const mapStateToProps = (states: RootState) => {
 const mapDispatchToProps = (
   dispatch: ThunkDispatch<{}, {}, any>,
 ): DispatchProps => {
-  return {
-    // setOnboarding: routeName => dispatch(setOnboarding(routeName)),
-  };
+  return {};
 };
 
 class SampleScreen extends Component<any> {
@@ -48,7 +44,6 @@ class SampleScreen extends Component<any> {
   }
 
   render() {
-    //console.log('SAMPLEDATA', this.props.data.sampleData.data);
     return (
       <View style={SampleStyles.mainContainer}>
         <HeaderViewComponent
@@ -58,7 +53,10 @@ class SampleScreen extends Component<any> {
           text={'Dashboard'}
         />
         <TouchableOpacity>
-          <Text style={{fontFamily: OpenSansBold}}>
+          <Text
+            style={{
+              fontFamily: OpenSansBold,
+            }}>
             Welcome to Delivery App
           </Text>
         </TouchableOpacity>

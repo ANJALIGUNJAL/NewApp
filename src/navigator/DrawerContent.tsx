@@ -45,10 +45,7 @@ class DrawerContent extends Component<any> {
       <View style={{flex: 1}}>
         <View style={styles.drawerContent}>
           <ImageBackground
-            style={{
-              height: '100%',
-              width: '100%',
-            }}
+            style={styles.imageBackgroundStyle}
             resizeMethod={'resize'}
             resizeMode={'contain'}
             source={require('../assets/drawerLogo.png')}
@@ -62,10 +59,10 @@ class DrawerContent extends Component<any> {
                 justifyContent: 'center',
                 marginStart: 10,
               }}>
-              <Text style={[styles.nameText, {fontSize: hp('2%')}]}>
+              <Text style={[styles.nameText, {fontFamily: OpenSansRegular}]}>
                 Hello,
               </Text>
-              <Text style={[styles.nameText, {fontSize: hp('2.2%')}]}>
+              <Text style={[styles.nameText, {fontFamily: OpenSansSemiBold}]}>
                 John Doe
               </Text>
             </View>
@@ -83,11 +80,9 @@ class DrawerContent extends Component<any> {
             <Order />
             <Text style={styles.itemText}>Order History</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            //onPress={() => this.route('HelpSupportScreen')}
-            style={styles.item}>
+          <TouchableOpacity style={styles.item}>
             <Help />
-            <Text style={styles.itemText}>Help /Support</Text>
+            <Text style={styles.itemText}>Help / Support</Text>
           </TouchableOpacity>
           <View
             style={[
@@ -97,7 +92,6 @@ class DrawerContent extends Component<any> {
             <Logout />
             <TouchableOpacity
               style={{alignItems: 'center', justifyContent: 'center'}}
-              // onPress={() => this.props.navigation.navigate('SignInScreen')}
               onPress={() =>
                 Alert.alert(
                   'Logout',
@@ -123,6 +117,11 @@ class DrawerContent extends Component<any> {
 }
 
 const styles = StyleSheet.create({
+  imageBackgroundStyle: {
+    height: '100%',
+    width: '100%',
+    marginTop: 25,
+  },
   drawerContent: {
     width: '50%',
     height: '85%',
@@ -141,16 +140,14 @@ const styles = StyleSheet.create({
   },
   headerViewStyle: {
     flexDirection: 'row',
-    padding: 20,
+    marginTop: 20,
+    marginLeft: 20,
+    marginBottom: 20,
+    paddingBottom: 10,
     borderBottomColor: grey,
     borderBottomWidth: 1,
-    borderBottomLeftRadius: 25,
+    borderBottomLeftRadius: 15,
     borderBottomRightRadius: 25,
-  },
-  hello: {
-    color: lightgrey,
-    fontFamily: OpenSansRegular,
-    fontSize: hp('1.8%'),
   },
   nameText: {
     color: darkgrey,
@@ -168,7 +165,7 @@ const styles = StyleSheet.create({
   },
   item: {
     flexDirection: 'row',
-    marginHorizontal: '5%',
+    marginHorizontal: '5.5%',
     marginTop: 20,
   },
 });
