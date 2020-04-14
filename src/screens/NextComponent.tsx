@@ -7,12 +7,13 @@ import {RootState} from '../store';
 import {sampleDataState} from '../store/reducers/sample/sampleReducer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import HeaderViewComponent from '../components/PureblendHeaderView';
-import {DrawerIcon, RightArrow} from '../assets/SVG';
+import {DrawerIcon, BackButton, RightArrow} from '../assets/SVG';
 import {
   OpenSansBold,
   OpenSansRegular,
   OpenSansSemiBold,
 } from '../themes/config';
+import {primary} from '../themes/color';
 import {styles} from '../themes/styles';
 
 interface DispatchProps {}
@@ -39,7 +40,7 @@ const mapDispatchToProps = (
   return {};
 };
 
-class SampleScreen extends Component<any> {
+class NextComponent extends Component<any> {
   constructor(props: any) {
     super(props);
   }
@@ -48,20 +49,16 @@ class SampleScreen extends Component<any> {
     return (
       <View style={{flex: 1}}>
         <HeaderViewComponent
-          type="dashboard"
+          type="normal"
           leftSource={<DrawerIcon />}
-          text={'Dashboard'}
+          onLeftHeaderClick={() => this.props.navigation.toggleDrawer()}
+          text={'Open Drawer from here'}
         />
-
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('NextComponent')}
+          onPress={() => this.props.navigation.goBack()}
           style={styles.textStyle}>
-          <Text
-            style={{
-              fontFamily: OpenSansBold,
-              alignItems: 'center',
-            }}>
-            Take me to Next Screen
+          <Text style={{fontFamily: OpenSansBold, color: primary}}>
+            TAKE ME BACK
           </Text>
         </TouchableOpacity>
       </View>
@@ -69,4 +66,4 @@ class SampleScreen extends Component<any> {
   }
 }
 const SampleStyles = StyleSheet.create({});
-export default connect(mapStateToProps, mapDispatchToProps)(SampleScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(NextComponent);

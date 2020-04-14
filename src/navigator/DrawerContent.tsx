@@ -118,18 +118,18 @@ class DrawerContent extends Component<any> {
 
 const styles = StyleSheet.create({
   imageBackgroundStyle: {
-    height: '100%',
+    height: '98%',
     width: '100%',
     marginTop: 25,
   },
   drawerContent: {
-    width: '50%',
-    height: '85%',
     flexDirection: 'row',
     position: 'absolute',
     justifyContent: 'flex-end',
     alignSelf: 'flex-end',
     alignContent: 'flex-end',
+    width: '50%',
+    height: '85%',
     bottom: 0,
   },
   profileImage: {

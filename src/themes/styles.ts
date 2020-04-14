@@ -47,4 +47,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     fontWeight: 'bold',
   },
+  textStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 40,
+  },
 });

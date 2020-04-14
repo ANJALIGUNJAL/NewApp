@@ -12,6 +12,7 @@ import {
 import {Dimensions} from 'react-native';
 import DrawerContent from './DrawerContent';
 import SampleComponent from '../screens/SampleComponent';
+import NextComponent from '../screens/NextComponent';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,7 @@ const AppStack = () => {
   return (
     <Stack.Navigator initialRouteName={'home'} headerMode="none">
       <Stack.Screen name={'home'} component={SampleComponent} />
+      <Stack.Screen name={'NextComponent'} component={NextComponent} />
     </Stack.Navigator>
   );
 };
