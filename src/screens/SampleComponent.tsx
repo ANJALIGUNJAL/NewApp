@@ -8,6 +8,11 @@ import {sampleDataState} from '../store/reducers/sample/sampleReducer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import HeaderViewComponent from '../components/PureblendHeaderView';
 import {DrawerIcon} from '../assets/SVG';
+import {
+  OpenSansBold,
+  OpenSansRegular,
+  OpenSansSemiBold,
+} from '../themes/config';
 
 interface DispatchProps {
   // setOnboarding: (routeName: string) => void;
@@ -49,11 +54,13 @@ class SampleScreen extends Component<any> {
         <HeaderViewComponent
           type="dashboard"
           leftSource={<DrawerIcon />}
-          onLeftHeaderClick={() => Alert.alert('dashboard')}
+          onLeftHeaderClick={() => this.props.navigation.toggleDrawer()}
           text={'Dashboard'}
         />
         <TouchableOpacity>
-          <Text style={{fontWeight: 'bold'}}>Welcome to Delivery App </Text>
+          <Text style={{fontFamily: OpenSansBold}}>
+            Welcome to Delivery App
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -62,8 +69,6 @@ class SampleScreen extends Component<any> {
 const SampleStyles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(SampleScreen);
